@@ -9,17 +9,22 @@ import com.nexmo.client.voice.ncco.Ncco;
 import com.nexmo.client.voice.ncco.TalkAction;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.bouncycastle.openssl.PEMWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.X509Certificate;
+
 
 @SpringBootApplication
 public class CallsApplication {
 
-	public static void main(String[] args) throws IOException, NexmoClientException {
+	public static void main(String[] args) throws IOException, NexmoClientException, CertificateEncodingException {
 		SpringApplication.run(CallsApplication.class, args);
 
-		String key = System.getProperty("user.dir") +
-				"/src/main/java/com/abril/calls/key/private.key";
+		String key = System.getProperty("user.dir") + "\\src\\main\\java\\com\\abril\\calls\\key\\privatekey.key";
 
 		NexmoClient client = NexmoClient.builder()
 				.applicationId("73a045ee-8d8a-4104-af9d-9a6d1ff79ca0")
@@ -42,5 +47,4 @@ public class CallsApplication {
 
 		System.out.println(result.getConversationUuid());
 	}
-
 }

@@ -30,4 +30,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'com.nexmo:client:4.+'
+	implementation group: 'org.bouncycastle', name: 'bcprov-jdk16', version: '1.45'
+
 }
